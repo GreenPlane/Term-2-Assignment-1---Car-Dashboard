@@ -1,5 +1,5 @@
 /** Code doesn't work, will edit.
-**/
+ **/
 
 public class Dashboard {
     private int odo;
@@ -64,6 +64,17 @@ public class Dashboard {
     }
 
     public String toString (){
-        return "Speedometer: " + speedo + " MPH\n" + "Odometer: " + odo + "\n" + "Check Engine: " + pntCheckEngine;
+        String pntOdo = "";
+        int digits = 0;
+        for (int i = odo; i > 10; i/=10){
+            digits++;
+        }
+        for (int i = 0; i < 5 - digits; i++){
+            pntOdo = pntOdo + "0";
+        }
+        if (odo != 0) {
+            pntOdo = pntOdo + String.valueOf(odo);
+        }
+        return "Speedometer: " + speedo + " MPH\n" + "Odometer: " + pntOdo + "\n" + "Check Engine: " + pntCheckEngine;
     }
 }
